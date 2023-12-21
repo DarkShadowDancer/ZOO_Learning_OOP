@@ -3,47 +3,44 @@ using System.Linq;
 
 namespace ZOO
 {
-    class Program
+  class Program
+  {
+    static void Main (string[]args)
     {
-        static void Main(string[] args)
-        {
-            ZOO zoo = new ZOO();
-            int volbaMenu = 0;
-            do
-            {
-                Console.WriteLine("MAIN MENU");
-                Console.WriteLine("\t1. Animal Records");
-                Console.WriteLine("\t2. Employee Records");
-                Console.WriteLine("\t3. Statistics of ZOO");
-                Console.WriteLine("\t4. Exit Program");
-                if (int.TryParse(Console.ReadLine(), out volbaMenu))
-                {
-                    switch (volbaMenu)
-                    {
-                        case 1:
-                            zoo.MenuAnimals(zoo);
-                            break;
-                        case 2:
-                            zoo.MenuEmployees(zoo);
-                            break;
-                        case 3:
-                            zoo.Statistics();
-                            break;
-                        case 4:
-                            Console.WriteLine("Exiting Program.");
-                            Console.ReadKey();
-                            break;
-                        default:
-                            Console.WriteLine("You entered an invalid choice. Please select a valid option.");
-                            break;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("You entered an invalid choice. Please select a valid option.");
-                }
-            }
-            while (volbaMenu != 4);
-        }
+      ZOO zoo = new ZOO ();
+      char volbaMenu = '0';
+      while (volbaMenu != '4')
+	    {
+	    Console.WriteLine ("MAIN MENU");
+	    Console.WriteLine ("\t1. Animal Records");
+	    Console.WriteLine ("\t2. Employee Records");
+	    Console.WriteLine ("\t3. Statistics of ZOO");
+	    Console.WriteLine ("\t4. Exit Program");
+	    volbaMenu = Console.ReadKey ().KeyChar;
+	    switch (volbaMenu)
+	    {
+          case '1':
+	      Console.Clear ();
+	      zoo.MenuAnimals (zoo);
+	      break;
+	      case '2':Console.Clear ();
+	      zoo.MenuEmployees (zoo);
+	      break;
+	      case '3':
+	      Console.Clear ();
+	      zoo.Statistics ();
+	      break;
+	      case '4':
+	      Console.Clear ();
+	      Console.WriteLine ("Press any key to close program.");
+	      Console.ReadKey ();
+	      break;
+	      default:
+	      Console.Clear();
+	      Console.WriteLine("You entered an invalid choice. Please select a valid option.");
+	      break;
+	    }
+	  }
     }
+  }
 }
