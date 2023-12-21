@@ -200,7 +200,6 @@ namespace ZOO
 			char volbaMenu = '0';
 			while (volbaMenu != '6')
 			{
-				Console.Clear();
 				Console.WriteLine("ANIMAL MENU:");
 				Console.WriteLine("\t 1. Add animal");
 				Console.WriteLine("\t 2. Lists animals");
@@ -218,27 +217,24 @@ namespace ZOO
 					case '2':
 						Console.Clear();
 						zoo.ListAnimals();
-						Console.ReadKey();
 						break;
 					case '3':
 						Console.Clear();
 						zoo.ModifyAnimals();
-						Console.ReadKey();
 						break;
 					case '4':
 						Console.Clear();
 						zoo.FindAnimals();
-						Console.ReadKey();
 						break;
 					case '5':
 						Console.Clear();
 						zoo.RemoveAnimal();
-						Console.ReadKey();
 						break;
 					case '6':
 						Console.Clear();
 						break;
 					default:
+						Console.Clear();
 						Console.WriteLine("You entered an invalid choice. Please select a valid option.");
 						break;
 				}
@@ -421,8 +417,8 @@ namespace ZOO
 		}
 		public void MenuEmployees(ZOO zoo)
 		{
-			int volbaMenu = 0;
-			do
+			char volbaMenu = '0';
+			while(!volbaMenu = '5')
 			{
 				Console.WriteLine("EMPLOYEE MENU");
 				Console.WriteLine("\t 1. Add employee");
@@ -430,35 +426,34 @@ namespace ZOO
 				Console.WriteLine("\t 3. Modify employee");
 				Console.WriteLine("\t 4. Remove employee");
 				Console.WriteLine("\t 5. Back");
-				if (int.TryParse(Console.ReadLine(), out volbaMenu))
-				{
+				volbaMenu = Console.ReadKey().KeyChar;
 					switch (volbaMenu)
 					{
-						case 1:
+						case '1':
+							Console.Clear();
 							zoo.AddEmployee();
 							break;
-						case 2:
+						case '2':
+							Console.Clear();
 							zoo.ListOfEmployees();
 							break;
-						case 3:
+						case '3':
+							Console.Clear();
 							zoo.ModifyEmployee();
 							break;
-						case 4:
+						case '4':
+							Console.Clear();
 							zoo.RemoveEmployee();
 							break;
-						case 5:
+						case '5':
+							Console.Clear();
 							break;
 						default:
+							Console.Clear();
 							Console.WriteLine("You entered an invalid choice. Please select a valid option.");
 							break;
 					}
-				}
-				else
-				{
-					Console.WriteLine("You entered an invalid choice. Please select a valid option.");
-				}
 			}
-			while (volbaMenu != 5);
 		}
 	}
 }
